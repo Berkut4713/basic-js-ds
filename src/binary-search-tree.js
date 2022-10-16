@@ -26,14 +26,26 @@ class BinarySearchTree {
     }
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+    return checkValue(this.rootValue, data);
+
+    function checkValue(node, data) {
+      if (!node) {return false;}
+      if (node.data === data) {return true;}
+      if (node.data < data) {return checkValue(node.right, data);
+      } else {return checkValue(node.left, data);}
+    }
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+    return searchNode(this.rootValue, data);
+
+    function searchNode(node, data) {
+      if (!node) {return null;}
+      if (node.data === data) {return node;}
+      if (node.data > data) {return searchNode(node.left, data);}
+       else {return searchNode(node.right, data);}
+    }
   }
 
   remove(/* data */) {
